@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2020.4">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\ABIODUN\Downloads\Udacity 2\Store_Clusters.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Store_Clusters.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Store" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="Total_Store_Sales" source="R-DATA:" type="Double" />
+            <Field name="Perc_Sum_Dry_Grocery" source="R-DATA:" type="Double" />
+            <Field name="Perc_Sum_Dairy" source="R-DATA:" type="Double" />
+            <Field name="Perc_Sum_Frozen_Food" source="R-DATA:" type="Double" />
+            <Field name="Perc_Sum_Meat" source="R-DATA:" type="Double" />
+            <Field name="Perc_Sum_Produce" source="R-DATA:" type="Double" />
+            <Field name="Perc_Sum_Floral" source="R-DATA:" type="Double" />
+            <Field name="Perc_Sum_Deli" source="R-DATA:" type="Double" />
+            <Field name="Perc_Sum_Bakery" source="R-DATA:" type="Double" />
+            <Field name="Perc_Sum_General_Merchandise" source="R-DATA:" type="Double" />
+            <Field name="Cluster" source="R-DATA:" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\ABIODUN\Downloads\Udacity 2\storeinformation.csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreErrors>False</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>254</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>,</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>storeinformation.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Store" size="254" source="File: C:\Users\ABIODUN\Downloads\Udacity 2\storeinformation.csv" type="V_String" />
+            <Field name="Address" size="254" source="File: C:\Users\ABIODUN\Downloads\Udacity 2\storeinformation.csv" type="V_String" />
+            <Field name="City" size="254" source="File: C:\Users\ABIODUN\Downloads\Udacity 2\storeinformation.csv" type="V_String" />
+            <Field name="State" size="254" source="File: C:\Users\ABIODUN\Downloads\Udacity 2\storeinformation.csv" type="V_String" />
+            <Field name="Zip" size="254" source="File: C:\Users\ABIODUN\Downloads\Udacity 2\storeinformation.csv" type="V_String" />
+            <Field name="Type" size="254" source="File: C:\Users\ABIODUN\Downloads\Udacity 2\storeinformation.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="246" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="Store" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="Store" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_Cluster" selected="True" input="Left_" type="V_String" size="11" />
+                <SelectField field="Right_Store" selected="False" rename="Right_Store" input="Right_" size="11" />
+                <SelectField field="Right_Address" selected="True" input="Right_" size="11" />
+                <SelectField field="Right_City" selected="True" input="Right_" size="11" />
+                <SelectField field="Right_State" selected="True" input="Right_" size="11" />
+                <SelectField field="Right_Zip" selected="True" input="Right_" size="11" />
+                <SelectField field="Right_Type" selected="True" input="Right_" size="11" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="330" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\ABIODUN\AppData\Local\Temp\Engine_4604_f4675528082d40758314bac24e26b217_\Engine_6528_dfeac8bf033e4a63be08c4e2a34e4747_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings>
+        <Position x="162" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Check Box (135)">False</Value>
+          <Value name="Check Box (136)">False</Value>
+          <Value name="List Box (11)">"Address"</Value>
+          <Value name="Check Box (84)">False</Value>
+          <Value name="Check Box (117)">False</Value>
+          <Value name="Check Box (15)">True</Value>
+          <Value name="Check Box (109)">False</Value>
+          <Value name="Check Box (122)">False</Value>
+          <Value name="Check Box (53)">False</Value>
+          <Value name="Check Box (58)">False</Value>
+          <Value name="Check Box (70)">False</Value>
+          <Value name="Check Box (77)">False</Value>
+          <Value name="Drop Down (81)">upper</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings Macro="Cleanse.yxmc" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="354" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="25">C:\Users\ABIODUN\Downloads\Udacity 2\Store_Clusters_and_Address.xlsx|||Sheet1</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <PreserveFormat>False</PreserveFormat>
+            <SkipFieldNames>False</SkipFieldNames>
+            <OutputOption>Create</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Store_Clusters_and_Address.xlsx
+Query=Sheet1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="3" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output26" />
+      <Destination ToolID="3" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="11" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Join" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Join" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Task 1 map</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
